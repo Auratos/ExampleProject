@@ -1,0 +1,34 @@
+.search-container {
+  display: block;
+  height: calc(100% - 64px);
+  width: 100%;
+}
+
+.left-column-style {
+  height: 100%;
+  background-color: #ffffff;
+  border-right: solid 1px #dcdcdc;
+  border-bottom: 0;
+}
+
+.right-column-style {
+  height: 100%;
+  background-color: #fafafa;
+  overflow-y: auto;
+}
+
+@media(max-width: 765px) {
+  .left-column-style {
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 0;
+    border-bottom: solid 1px #dcdcdc;
+  }
+
+  .search-container {
+    display: block;
+    height: auto;
+    width: 100%;
+    overflow-y: auto;
+  }
+}

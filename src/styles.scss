@@ -1,0 +1,18 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cart-result-header-style {
+  .mat-card-header-text {
+    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.product-list-style {
+  .mat-list-item-content {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+}

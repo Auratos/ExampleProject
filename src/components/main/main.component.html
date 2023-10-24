@@ -1,0 +1,39 @@
+<div class="container-fluid px-0 main-container-style">
+  <mat-toolbar color="primary">
+    <div>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button
+          *ngFor="let category of categories; let index = index;" 
+          mat-menu-item 
+          routerLink="/products"
+          (click)="ChangeCategory(category.id)">
+          {{category.name}}
+        </button>
+      </mat-menu>
+      <button 
+        mat-icon-button 
+        routerLink="/search"
+        matTooltip="Поиск">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+    <span>Тестовое задание</span>
+    <span class="d-flex flex-grow-1"></span>
+    <button 
+      mat-icon-button
+      position-relative 
+      routerLink="/cart"
+      matTooltip="Корзина">
+      <mat-icon>shopping_cart</mat-icon>
+      <span 
+        *ngIf="selectedProductCount > 0" 
+        class="position-absolute top-0 start-50 badge rounded-pill bg-danger">
+        {{selectedProductCount}}
+      </span>
+    </button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>

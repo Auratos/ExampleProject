@@ -1,0 +1,29 @@
+.cart-container-style {
+  min-width: 600px; 
+  overflow-x: auto;
+  height: calc(100% - 64px);
+}
+
+.cart-mat-card-container-style {
+  padding-top: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.cart-result-mat-card-style {
+  width: 250px;
+}
+
+.cart-mat-list-item-style {
+  height: 80px !important;
+}
+
+.cart-products-mat-card-style {
+  min-width: 400px;
+}
+
+@media(max-width: 765px) {
+  .cart-result-mat-card-style {
+    width: 100%;
+  }
+}

@@ -1,0 +1,20 @@
+<mat-list class="w-100 h-100 product-list-style">
+  <mat-list-item 
+    *ngFor="let product of products; let index = index;" 
+    class="w-100 d-flex justify-content-center product-list-mat-list-item-style">
+    <mat-card class="d-flex justify-content-between product-list-mat-card-style">
+      <mat-card-content class="mb-0">
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>Цена: {{product.price}} руб.</mat-card-subtitle>
+      </mat-card-content>
+      <div>
+        <button 
+          mat-raised-button 
+          color="primary"
+          (click)="AddProductToCart(product.id)">
+          Купить
+        </button>
+      </div>
+    </mat-card>
+  </mat-list-item>
+</mat-list>

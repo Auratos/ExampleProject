@@ -1,0 +1,51 @@
+<div class="container-fluid cart-container-style">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+      <div class="d-flex justify-content-start">
+        <mat-list class="w-100">
+          <mat-list-item 
+            *ngFor="let product of products; let index = index;" 
+            class="w-100 cart-mat-list-item-style">
+            <mat-card class="d-flex justify-content-between w-100 cart-products-mat-card-style">
+              <mat-card-content class="d-flex align-items-center m-0">
+                <mat-card-title>{{product.name}}</mat-card-title>
+              </mat-card-content>
+              <div class="d-flex">
+                <mat-card-subtitle class="d-flex align-items-center mb-0">Цена: {{product.price}} руб.</mat-card-subtitle>
+                <button 
+                  mat-mini-fab 
+                  color="warn" 
+                  class="ms-3"
+                  (click)="DeleteProductFromCart(product.id)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+            </mat-card>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+      <div class="d-flex justify-content-end cart-mat-card-container-style">
+        <mat-card class="cart-result-mat-card-style">
+          <mat-card-header class="cart-result-header-style">
+            <mat-card-subtitle class="mb-1">Итого:</mat-card-subtitle>
+            <mat-card-title class="d-flex justify-content-between">
+              <span>{{products.length}} товар(ов)</span>
+              <span>{{cartSum}} руб</span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <button 
+              mat-raised-button 
+              color="primary" 
+              class="w-100"
+              [disabled]="products.length == 0">
+              Оформить
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

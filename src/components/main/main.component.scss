@@ -1,0 +1,27 @@
+.header {
+  display: block;
+}
+
+.main-container-style {
+  min-width: 600px; 
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.mat-toolbar{
+  background: #3f51b5;
+  color: #fff;
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+@media(max-width: 959px) {
+  .mat-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  }
+}

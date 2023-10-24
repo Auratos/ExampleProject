@@ -1,0 +1,53 @@
+<div class="container-fluid search-container">
+  <div class="row h-100">
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 left-column-style">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100 mt-1">
+            <mat-label>Категория</mat-label>
+            <mat-select 
+              [(ngModel)]="filter.categoryId"
+              (ngModelChange)="SetCategory()"  
+              name="categories">
+              <mat-option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100">
+            <mat-label>Наименование</mat-label>
+            <input 
+              matInput 
+              [(ngModel)]="filter.name"
+              (ngModelChange)="SetName()">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col d-flex flex-nowrap">
+          <button 
+            mat-raised-button 
+            color="primary"
+            class="w-50"
+            (click)="FilterProducts()">
+            Найти
+          </button>
+          <button 
+            mat-raised-button 
+            color="warn"
+            class="ms-2 w-50"
+            (click)="ClearFilter()">
+            Сбросить
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 right-column-style">
+      <app-product-list [products]="products"></app-product-list>
+    </div>
+  </div>
+</div>

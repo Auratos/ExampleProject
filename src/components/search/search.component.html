@@ -6,8 +6,7 @@
           <mat-form-field class="w-100 mt-1">
             <mat-label>Категория</mat-label>
             <mat-select 
-              [(ngModel)]="filter.categoryId"
-              (ngModelChange)="SetCategory()"  
+              [(ngModel)]="filter.categoryId" 
               name="categories">
               <mat-option *ngFor="let category of categories" [value]="category.id">
                 {{category.name}}
@@ -22,8 +21,7 @@
             <mat-label>Наименование</mat-label>
             <input 
               matInput 
-              [(ngModel)]="filter.name"
-              (ngModelChange)="SetName()">
+              [(ngModel)]="filter.name">
           </mat-form-field>
         </div>
       </div>

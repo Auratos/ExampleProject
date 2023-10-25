@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Action, Store, select } from '@ngrx/store';
 import { Observable, Subscription, map } from 'rxjs';
@@ -13,7 +13,7 @@ import { GET_PRODUCT_LIST, ProductState } from 'src/store/actions/product.action
   styleUrls: ['./main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnDestroy {
   public categories: Category[];
   public selectedCategory$: Observable<CategoryState>;
   public selectedCategory: number;

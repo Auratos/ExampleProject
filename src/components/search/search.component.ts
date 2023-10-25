@@ -43,8 +43,6 @@ export class SearchComponent implements OnInit {
 
   public CheckFilterParams(): void {
     let needUpdateProducts: boolean = false;
-    let filterCategoryId = parseInt(localStorage.getItem('filterCategoryId') ?? '');
-    let filterName = localStorage.getItem('filterName') ?? undefined;
 
     let result = this.route.snapshot.queryParamMap.get('category');
     this.selectedCategory = parseInt(result ?? '');
@@ -54,10 +52,8 @@ export class SearchComponent implements OnInit {
       let result = this.categories.find(item => item.id === this.selectedCategory);
       this.filter.categoryId = result?.id;
       needUpdateProducts = true;
-    } else if (filterCategoryId != undefined && !Number.isNaN(filterCategoryId)) {
-      this.filter.categoryId = filterCategoryId;
     }
-    this.filter.name = this.nameStr ?? filterName;
+    this.filter.name = this.nameStr;
     if (needUpdateProducts || this.nameStr != undefined) {
       this.FilterProducts();
     }
@@ -80,22 +76,9 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  public SetCategory(): void {
-    localStorage.setItem('filterCategoryId', JSON.stringify(this.filter.categoryId));
-  }
-
-  public SetName(): void {
-    if (this.filter.name != undefined && this.filter.name != '') {
-      localStorage.setItem('filterName', this.filter.name);
-    } else {
-      localStorage.removeItem('filterName');
-    }
-  }
-
   public ClearFilter(): void {
     this.filter = new Filter();
     this.products = [];
     this.router.navigate(['/search']);
-    localStorage.clear();
   }
 }
